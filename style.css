@@ -1,0 +1,56 @@
+body /*배경설정*/{
+    margin:0px;
+    background-image:url("images/background.avif"); /* 백그라운드 붙여넣기 */
+    background-repeat: no-repeat; /* 백그라운드사진 반복x (사진이작아서 반복됨) */
+    background-size: cover; /* 백그라운드 사진 늘리기 */
+}
+
+.container{
+    background-color: white; /* 배경색 */
+    min-height: 100vh; /* min height 최소한의 높이 vh 내가보는 화면의 높이 */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        /* box shadow 박스음영 검색//카피 (93 클릭, 다른것도 가능)  */
+}
+
+.task-area{
+    border: 1px solid lightgray; /* border solid/groove/dashed.. 테두리 틀 */
+}
+
+.task-tabs{
+    display: flex; /* 가로로 배열 (기본설정이 세로로 배열) /바로 윗부분에 적용*/
+    /* flex-direction-column 세로로배열 */
+    border-bottom: 1px solid lightgray; 
+    /* bottom 만하는 이유는 task-area에서 적용되서 top부분이 겹쳐짐 */
+    position:relative; 
+    /* absolute의 기준점이 여기로 하기 위해서 바로 위인 tabs에 relative부여 */
+}
+
+.task-tabs div{
+    padding: 1em; 
+    /* 글자사이 간격 padding */
+    /* 폰트사이즈에 비례 16font면 
+    16font x 1em = 16px 
+    16font x 0.5em = 8px
+    16font x 2em = 32px */
+}
+
+#under-line{ 
+    /* #은 id 쓸때 씀 
+    id 보통 폰트크기, 색상 등 추후 다른 곳에 적용될 수 있는 스타일 지정시 클래스 지정자를 사용하면 됨
+    ID선택자는 주로 HTML내에서 요소의 배치 방법 지정 등에 사용하게 된다.*/
+    height: 4px;
+    background-color: pink;
+    position: absolute; /*?? 영상보고 찾기 절대값기준으로 px 움직임*/
+    width: 60px;
+    left: 0px;
+    top:52px;
+    padding: 0px;
+}
+
+.task{
+    display: flex;
+    justify-content: space-between;  
+    /* 사이 간격주기 (가로축기준) center가운데*/
+    /* aline-items 세로축기준//flex-direction-column 세로로배열 */
+    padding: 1em;
+}
