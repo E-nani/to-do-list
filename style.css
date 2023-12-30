@@ -54,3 +54,8 @@ body /*배경설정*/{
     /* aline-items 세로축기준//flex-direction-column 세로로배열 */
     padding: 1em;
 }
+
+.task-done{
+    text-decoration: line-through;
+    /* 텍스트중간에 줄그어지는 효과 */
+}
