@@ -32,6 +32,7 @@ body /*배경설정*/{
     16font x 1em = 16px 
     16font x 0.5em = 8px
     16font x 2em = 32px */
+    cursor: pointer; /* 커서 모양바꾸기 */
 }
 
 #under-line{ 
