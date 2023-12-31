@@ -39,7 +39,7 @@ function addTask(){
     //console.log(taskList); / 배열에 잘들어갔는지 확인
 }
 
-function render(){ // 그림 이벤트는 render로
+function render(){ // 그림 이벤트는 render로 //값이 업데이트되면 UI(render)도: 함수에 render넣으면됨
     let resultHTML = '';
     for(let i =0; i<taskList.length; i++){
         if(taskList[i].isComplete == true){//tasklist안에 iscomplete가 true라면
@@ -47,7 +47,7 @@ function render(){ // 그림 이벤트는 render로
         <div class="task-done">${taskList[i].taskContent}</div>
         <div>
             <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-            <button onclick="deleteTask()">Delete</button>
+            <button onclick="deleteTask('${taskList[i].id}')">Delete</button>
         </div>
     </div>`
         }else{
@@ -55,7 +55,7 @@ function render(){ // 그림 이벤트는 render로
         <div>${taskList[i].taskContent}</div>
         <div>
             <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-            <button onclick="deleteTask()">Delete</button>
+            <button onclick="deleteTask('${taskList[i].id}')">Delete</button>
         </div>
     </div>`
         }
@@ -93,11 +93,18 @@ function toggleComplete(id){ //check할때 id부여
         }
     }
     render(); // 함수를 불러줘야 적용된 이펙스사용
-    console.log(taskList);
 }
 
-function deleteTask(){
-    console.log("삭제");
+function deleteTask(id){
+   // console.log("삭제",id); 삭제버튼 눌렀을때 id나오면서 작동하는지 확인
+   // splice(시작점,몇개)를 사용하기위해 몇번째 인덱스 값인지 알기위해 for문씀
+   for(let i = 0; i<taskList.length; i++){
+    if(taskList[i].id == id){//taskList의 id값이랑 내가 받은 id값이 같다면
+        taskList.splice(i,1); //i번째 1개 삭제
+        break;
+    }
+    render();
+   }
 }
 
 function randomIDGenerate(){
