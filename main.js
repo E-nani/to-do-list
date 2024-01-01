@@ -71,7 +71,7 @@ function render(){ // 그림 이벤트는 render로 //값이 업데이트되면 
     // 내가 선택한 탭 만드는 식 (아래)
     if(mode ==="all"){ // all -> tasklist
         list = taskList;
-    } else if(mode ==="not done"){ //not done done -> filterList
+    } else{ //not done done -> filterList
         list = filterList;
     }
     
@@ -199,6 +199,12 @@ function filter(event){
     } else if(mode === "done"){
         // done인 아이템을 보여줌
         // 끝난것은 task.isComplete=true 
+        for(let i=0; i<taskList.length; i++){
+            if(taskList[i].isComplete == true){
+                filterList.push(taskList[i]) 
+            }
+        }  // not done 반대로 하면됨
+        render();
     }
 }
 
